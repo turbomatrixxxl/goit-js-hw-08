@@ -28,7 +28,7 @@ const remove = key => {
 };
 
 var _ = require('lodash');
-
+export default { _ };
 import Player from '@vimeo/player';
 
 const iframe = document.querySelector('iframe');
