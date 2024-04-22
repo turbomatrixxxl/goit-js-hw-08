@@ -24,9 +24,6 @@ const load = key => {
 const remove = key => {
   try {
     const serializedState = localStorage.removeItem(key);
-    return serializedState === null
-      ? undefined
-      : JSON.stringify(serializedState);
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
@@ -46,6 +43,8 @@ const eventObject = {
   email: '',
   message: '',
 };
+
+// save('feedback-form-state', eventObject);
 
 form.addEventListener(
   'input',
@@ -93,10 +92,8 @@ if (localeStorageDatas.message === undefined) {
 
 submitButton.addEventListener('click', e => {
   e.preventDefault();
-  localStorage.clear();
-  const submitObject = {
-    email: input.value,
-    message: textarea.value,
-  };
-  console.log(submitObject);
+  //   localStorage.clear();
+  input.value = '';
+  textarea.value = '';
+  console.log(localeStorageDatas);
 });
