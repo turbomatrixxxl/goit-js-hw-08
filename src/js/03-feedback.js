@@ -44,8 +44,6 @@ const eventObject = {
   message: '',
 };
 
-// save('feedback-form-state', eventObject);
-
 form.addEventListener(
   'input',
   _.throttle(e => {
@@ -92,8 +90,7 @@ if (localeStorageDatas.message === undefined) {
 
 submitButton.addEventListener('click', e => {
   e.preventDefault();
-  //   localStorage.clear();
-  input.value = '';
-  textarea.value = '';
+  form.reset();
+
   console.log(localeStorageDatas);
 });
